@@ -9,6 +9,17 @@ import re
 from imgInfo import ImgInfo,GetConfig
 import numpy as np
 
+def printResult(data):
+	print("**********************************");
+	print data[0];
+	# print("曝光时间:%s",%(data[0]));
+	# print("最小值:%f",%(float(data[3]));
+	# print("最大值:%s",%(data[4]));
+	# print("平均值:%s",%(data[5]));
+	# print("标准方差(噪声):%s",%(data[6]));
+	
+
+
 def saveResult(data,item,title,count):
 	fp = open(title + '.txt','a')
 	bufList = "";
@@ -140,6 +151,7 @@ def openFile(path):
 							expTime = getExpTime(file);
 							listTemp = [file,getExpTime(file),imgInfo.getPixNum(),imgInfo.getPixMin(),imgInfo.getPixMax(),
 								imgInfo.getPixAver(),imgInfo.getPixStdDev()];
+							printResult(listTemp);
 							imgInfoLists = imgInfoLists + listTemp;
 							fileCount = fileCount +1;
 							# print listTemp;
@@ -173,6 +185,7 @@ def openFile(path):
 							im.close();
 					else:
 						print "else"
+			# printResult(imgInfoLists);
 		# imgInfoList = np.matrix(imgInfoList)
 		imgInfoLists = np.reshape(imgInfoLists,(len(imgInfoLists)/7,7));
 		imgInfoLists = sorted(imgInfoLists,key=lambda x : float(x[1]))   # sort by expTime 
@@ -197,9 +210,9 @@ def main():
 			title	= sys.argv[i+1];
 
 	config = GetConfig();#获取配置文件
-	fp = open(title + '.txt','w')
-	fp.write("************平均值统计******************\n")
-	fp.close();
+	# fp = open(title + '.txt','w')
+	# fp.write("************平均值统计******************\n")
+	# fp.close();
 	if config.getCompareMode() == 0:   #只处理单个文件夹的数据
 		openFile(path);
 	elif config.getCompareMode() == 1:  #处理多个文件夹下的数据
@@ -207,8 +220,10 @@ def main():
 
 		items = config.getComparePath();
 		for item in items:
-			saveResult(openFile(item[1]),config.getSaveItem(),title,count);
-			count = count + 1;
+			# printResult(openFile(item[1]));
+			result = openFile(item[1]);
+			# saveResult(openFile(item[1]),config.getSaveItem(),title,count);
+			# count = count + 1;
 			# print item[1];
 	else:
 		print "***** error ****";
