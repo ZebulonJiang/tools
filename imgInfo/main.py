@@ -10,13 +10,12 @@ from imgInfo import ImgInfo,GetConfig
 import numpy as np
 
 def printResult(data):
-	print("**********************************");
+	print("***************");
 	print data[0];
-	# print("曝光时间:%s",%(data[0]));
-	# print("最小值:%f",%(float(data[3]));
-	# print("最大值:%s",%(data[4]));
-	# print("平均值:%s",%(data[5]));
-	# print("标准方差(噪声):%s",%(data[6]));
+	print("PixMin %s"%(data[3]));
+	print("PixMax:%s"%(data[4]));
+	print("PixAver:%s"%(data[5]));
+	print("PixStdDev:%s \n\r"%(data[6]));
 	
 
 
@@ -38,6 +37,7 @@ def saveResult(data,item,title,count):
 	# print "savedata";
 
 def getExpTime(file):
+	file = file.encode('gbk')
 	if re.search('ms', file, re.IGNORECASE):
 		expTime = int(filter(str.isdigit, file));
 	elif re.search('us', file, re.IGNORECASE):
@@ -100,6 +100,7 @@ def setRoi(format,roiMode,size):
 
 def openFile(path):
 	cofig = GetConfig();
+	path = unicode(path , "utf8")
 	if(os.path.exists(path)==False):	
 		print("\'%s\'  is not exist"%(path))
 		return -1
@@ -221,6 +222,9 @@ def main():
 		items = config.getComparePath();
 		for item in items:
 			# printResult(openFile(item[1]));
+			print("#######################################################################");
+			print("### %s ###" %item[1]);
+			print("#######################################################################");
 			result = openFile(item[1]);
 			# saveResult(openFile(item[1]),config.getSaveItem(),title,count);
 			# count = count + 1;
