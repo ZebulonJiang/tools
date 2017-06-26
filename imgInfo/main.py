@@ -10,12 +10,20 @@ from imgInfo import ImgInfo,GetConfig
 import numpy as np
 
 def printResult(data):
+	'''
 	print("***************");
 	print data[0];
-	print("PixMin %s"%(data[3]));
+	print data[1];
+	print("PixMin:%s"%(data[3]));
 	print("PixMax:%s"%(data[4]));
 	print("PixAver:%s"%(data[5]));
 	print("PixStdDev:%s \n\r"%(data[6]));
+	'''
+	for i in range(len(data)):
+		for j in range(len(data[i])-1):
+			print data[i][j+1],;
+		#print len(data[i])
+		print "\n";
 	
 
 
@@ -39,11 +47,13 @@ def saveResult(data,item,title,count):
 def getExpTime(file):
 	file = file.encode('gbk')
 	if re.search('ms', file, re.IGNORECASE):
-		expTime = int(filter(str.isdigit, file));
+		expTime = int(float(file[:-6])*1000);
 	elif re.search('us', file, re.IGNORECASE):
-		expTime = float(filter(str.isdigit, file))/1000;
+		expTime = int(filter(str.isdigit, file));
+		#expTime = float(filter(str.isdigit, file)/1000);
 	else:
-		expTime = int(filter(str.isdigit, file))*1000;
+		expTime = int(filter(str.isdigit, file))*1000000;
+	#print expTime;
 	return expTime;
 
 def setRoi(format,roiMode,size):
@@ -147,12 +157,13 @@ def openFile(path):
 							width,height = im.size;
 							box = setRoi('BMP',cofig.getRoiMode(),im.size);
 							roi = im.crop(box)
-							r,g,b = roi.split()
+							#r,g,b = roi.split()
+							g = roi;
 							imgInfo = ImgInfo(g);
 							expTime = getExpTime(file);
 							listTemp = [file,getExpTime(file),imgInfo.getPixNum(),imgInfo.getPixMin(),imgInfo.getPixMax(),
 								imgInfo.getPixAver(),imgInfo.getPixStdDev()];
-							printResult(listTemp);
+							#printResult(listTemp);
 							imgInfoLists = imgInfoLists + listTemp;
 							fileCount = fileCount +1;
 							# print listTemp;
@@ -191,6 +202,8 @@ def openFile(path):
 		imgInfoLists = np.reshape(imgInfoLists,(len(imgInfoLists)/7,7));
 		imgInfoLists = sorted(imgInfoLists,key=lambda x : float(x[1]))   # sort by expTime 
 		fileCount = 0;
+		printResult(imgInfoLists);
+		#print imgInfoLists[0];
 		return imgInfoLists;
 		# print imgInfoLists;
 		# print len(imgInfoLists);
