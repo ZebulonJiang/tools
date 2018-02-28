@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #-*-coding:utf-8 -*-
+#!/usr/bin/env Python
+# coding=utf-8
 import os
 import sys
 import ctypes
@@ -23,7 +25,7 @@ def printResult(data):
 		for j in range(len(data[i])-1):
 			print data[i][j+1],;
 		#print len(data[i])
-		print "\n";
+		print "\r";
 	
 
 
@@ -52,7 +54,7 @@ def getExpTime(file):
 		expTime = int(filter(str.isdigit, file));
 		#expTime = float(filter(str.isdigit, file)/1000);
 	else:
-		expTime = int(filter(str.isdigit, file))*1000000;
+		expTime = int(filter(str.isdigit, file));
 	#print expTime;
 	return expTime;
 
@@ -110,7 +112,7 @@ def setRoi(format,roiMode,size):
 
 def openFile(path):
 	cofig = GetConfig();
-	path = unicode(path , "utf8")
+	path = unicode(path , "utf8").encode('gbk')
 	if(os.path.exists(path)==False):	
 		print("\'%s\'  is not exist"%(path))
 		return -1
