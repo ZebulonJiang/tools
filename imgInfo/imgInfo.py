@@ -71,6 +71,7 @@ class GetConfig(object):
 	def getFormat(self):
 		self.format = int(getConfigValue("MODE","Format"));
 		return self.format;
+		
 
 	def getRoiMode(self):
 		self.roiMode = int(getConfigValue("MODE","RoiMode"));

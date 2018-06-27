@@ -159,9 +159,15 @@ def openFile(path):
 							width,height = im.size;
 							box = setRoi('BMP',cofig.getRoiMode(),im.size);
 							roi = im.crop(box)
-							b,g,r = roi.split()
-							#g = roi;
-							imgInfo = ImgInfo(g);
+							if im.mode == 'L':
+								#g = roi.split()
+								#g = roi;
+								imgInfo = ImgInfo(roi);
+							else:
+								
+								b,g,r = roi.split()
+								#g = roi;
+								imgInfo = ImgInfo(g);
 							expTime = getExpTime(file);
 							listTemp = [file,getExpTime(file),imgInfo.getPixNum(),imgInfo.getPixMin(),imgInfo.getPixMax(),
 								imgInfo.getPixAver(),imgInfo.getPixStdDev()];
