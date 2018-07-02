@@ -11,6 +11,7 @@ import re
 from imgInfo import ImgInfo,GetConfig
 import numpy as np
 
+
 def printResult(data):
 	'''
 	print("***************");
@@ -23,7 +24,8 @@ def printResult(data):
 	'''
 	for i in range(len(data)):
 		for j in range(len(data[i])-1):
-			print data[i][j+1],;
+			print data[i][j+1]+"     ",;
+			#print('     ');
 		#print len(data[i])
 		print "\r";
 	
@@ -162,9 +164,10 @@ def openFile(path):
 							if im.mode == 'L':
 								#g = roi.split()
 								#g = roi;
+								#print "8bit"
 								imgInfo = ImgInfo(roi);
 							else:
-								
+								#print "24bit"
 								b,g,r = roi.split()
 								#g = roi;
 								imgInfo = ImgInfo(g);
@@ -231,11 +234,13 @@ def main():
 		if(sys.argv[i]=="-t"):
 			title	= sys.argv[i+1];
 
+
 	config = GetConfig();#获取配置文件
 	# fp = open(title + '.txt','w')
 	# fp.write("************平均值统计******************\n")
 	# fp.close();
 	if config.getCompareMode() == 0:   #只处理单个文件夹的数据
+		print("ExpTime(us)     PixNum     Min     Max     Aver     StdDev");
 		openFile(path);
 	elif config.getCompareMode() == 1:  #处理多个文件夹下的数据
 		# print config.getComparePath();
