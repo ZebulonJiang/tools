@@ -41,6 +41,7 @@ Linux或者mac用户请忽略这一步。
 ## Step3 安装依赖
 
 图像分析工具使用了python的第三方工具，如科学计算工具```numpy``` 图像处理工具```Pillow```，首次使用该工具，需要安装这些依赖，在工具目录下，右键打开cmder，终端就自动切换到工具所在的目录，在终端工具中输入下面命令
+
 ```pip install -r requirements.txt  -i https://mirrors.aliyun.com/pypi/simple```
 
 ![cmder here](http://7xq2ld.com1.z0.glb.clouddn.com/github/cmder_here.jpg)
@@ -53,9 +54,10 @@ Linux或者mac用户请忽略这一步。
 
 运行命令```python main.py -f 图片路径```，例如图片路径为```E:\work\tools\imgInfo\test```，则运行
 
-```python main.py -f E:\work\tools\imgInfo\test```
+`python main.py -f E:\work\tools\imgInfo\test`
 
 注意：图片路径不能有中文、空格。最好用英文路径。
+
 ![imginfo](http://7xq2ld.com1.z0.glb.clouddn.com/github/result.jpg)
 
 
