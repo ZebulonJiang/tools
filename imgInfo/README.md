@@ -47,7 +47,9 @@ Linux或者mac用户请忽略这一步。
 ![cmder here](http://7xq2ld.com1.z0.glb.clouddn.com/github/cmder_here.jpg)
 
 
-# 工具使用
+# 使用说明
+
+## 运行
 
 在工具目录下，右键打开cmder，终端就会自动切换到工具所在的目录
 ![cmder here](http://7xq2ld.com1.z0.glb.clouddn.com/github/cmder_here.jpg)
@@ -59,6 +61,13 @@ Linux或者mac用户请忽略这一步。
 注意：图片路径不能有中文、空格。最好用英文路径。
 
 ![imginfo](http://7xq2ld.com1.z0.glb.clouddn.com/github/result.jpg)
+
+
+## 修改配置
+
+工具支持多种图像格式和多种窗口模式，只需要修改config.ini文件即可
+
+![imginfo](http://7xq2ld.com1.z0.glb.clouddn.com/github/config.jpg)
 
 
 
