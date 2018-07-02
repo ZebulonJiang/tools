@@ -1,4 +1,13 @@
-[toc]
+* [概述](#%E6%A6%82%E8%BF%B0)
+* [安装步骤](#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4)
+  * [Step1 python安装配置](#step1-python%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE)
+    * [安装python2\.7](#%E5%AE%89%E8%A3%85python27)
+    * [python环境变量设置](#python%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE)
+  * [Step2 cmder 配置](#step2-cmder-%E9%85%8D%E7%BD%AE)
+  * [Step3 安装依赖](#step3-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96)
+* [使用说明](#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+  * [运行](#%E8%BF%90%E8%A1%8C)
+  * [修改配置](#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE)
 
 # 概述
 
