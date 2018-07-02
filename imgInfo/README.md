@@ -23,6 +23,7 @@
 ```D:\Program Files (x86)\Python27```
 
 ```D:\Program Files (x86)\Python27\Scripts```
+
 ![环境变量配置](http://7xq2ld.com1.z0.glb.clouddn.com/github/env1.jpg)
 ![环境变量配置](http://7xq2ld.com1.z0.glb.clouddn.com/github/env3.jpg)
 
